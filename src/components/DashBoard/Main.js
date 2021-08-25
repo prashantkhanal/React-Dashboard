@@ -10,7 +10,9 @@ import { useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
-    padding: theme.spacing(10, 2, 0, 35),
+    padding: theme.spacing(10, 0, 0, 40),
+    height: '100vh',
+    background: '#efefef',
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(9, 0, 0, 0),
     },
@@ -24,10 +26,17 @@ const Main = () => {
   const handleDrawerOpen = () => {
     setMobileOpen(!mobileOpen);
   };
+  const handleDrawerClose = () => {
+    setMobileOpen(false);
+  };
   return (
     <>
       <Navbar handleDrawerOpen={handleDrawerOpen} />
-      <LeftBar mobileOpen={mobileOpen} handleDrawerOpen={handleDrawerOpen} />
+      <LeftBar
+        mobileOpen={mobileOpen}
+        handleDrawerOpen={handleDrawerOpen}
+        handleDrawerClose={handleDrawerClose}
+      />
       <Box className={classes.wrapper}>
         <Switch>
           <Route exact path="/" render={() => <Dashboard />} />

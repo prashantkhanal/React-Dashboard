@@ -4,9 +4,7 @@ import SideNavList from './SideNavList';
 const useStyles = makeStyles((theme) => ({
   topBar: {
     paddingTop: theme.spacing(10),
-    backgroundColor: '#0A213C',
     height: '100vh',
-    color: '#555',
   },
   item: {
     display: 'flex',
@@ -31,20 +29,19 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
-    textTransform: 'capitalize',
   },
   drawerPaper: {
-    width: '250px',
+    width: '300px',
+    backgroundColor: '#0F172A',
     marginTop: '64px',
-    backgroundColor: '#0A213C',
-    color: '#555',
+
     [theme.breakpoints.down('sm')]: {
       marginTop: '0px',
     },
   },
 }));
 
-const LeftBar = ({ mobileOpen, handleDrawerOpen }) => {
+const LeftBar = ({ mobileOpen, handleDrawerOpen, handleDrawerClose }) => {
   const classes = useStyles();
 
   return (
@@ -60,10 +57,10 @@ const LeftBar = ({ mobileOpen, handleDrawerOpen }) => {
             paper: classes.drawerPaper,
           }}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
         >
-          <SideNavList />
+          <SideNavList handleDrawerClose={handleDrawerClose} />
         </Drawer>
       </Hidden>
       <Hidden smDown implementation="css">
@@ -74,7 +71,7 @@ const LeftBar = ({ mobileOpen, handleDrawerOpen }) => {
           variant="permanent"
           open
         >
-          <SideNavList />
+          <SideNavList handleDrawerClose={handleDrawerClose} />
         </Drawer>
       </Hidden>
     </nav>

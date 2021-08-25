@@ -1,9 +1,9 @@
-import { Typography, makeStyles } from '@material-ui/core';
+import { Typography, } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({}));
+// const useStyles = makeStyles((theme) => ({}));
 
 const Blog = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
     <>
       <Typography> Blog </Typography>

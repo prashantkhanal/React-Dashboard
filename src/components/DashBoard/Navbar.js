@@ -6,20 +6,14 @@ import {
   Box,
   InputBase,
   alpha,
-  Avatar,
   IconButton,
   Hidden,
 } from '@material-ui/core';
 import { Search } from '@material-ui/icons';
-import SubMenu from './SubMenu';
-import prashant from '../../assets/IMG_20200616_160535.jpg';
 import MenuIcon from '@material-ui/icons/Menu';
-import Brightness4Icon from '@material-ui/icons/Brightness4';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles((theme) => ({
-  navbar: {
-    backgroundColor: '#122942',
-  },
   search: {
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     '&:hover': {
@@ -35,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
     },
   },
+  navbar: {
+    background: '#1E293B',
+  },
+
   toolbar: {
     display: 'flex',
     flexFlow: 'row',
@@ -44,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navbar = ({ handleDrawerOpen }) => {
-  console.log('this is props', handleDrawerOpen);
   const classes = useStyles();
   return (
     <AppBar position="fixed" className={classes.navbar} elevation={0}>
@@ -59,9 +56,7 @@ const Navbar = ({ handleDrawerOpen }) => {
         </Box>
         <Hidden smDown>
           <Box display="flex" mr={3} alignItems="center">
-            <Brightness4Icon />
-            <SubMenu />
-            <Avatar src={prashant} />
+            <ExitToAppIcon />
           </Box>
         </Hidden>
         <Hidden mdUp>
