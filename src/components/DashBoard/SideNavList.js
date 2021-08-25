@@ -8,7 +8,6 @@ import {
   Box,
   Typography,
   Avatar,
-  Divider,
 } from '@material-ui/core';
 
 import {
