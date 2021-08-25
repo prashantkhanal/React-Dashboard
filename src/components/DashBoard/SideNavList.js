@@ -6,8 +6,9 @@ import {
   ListItemText,
   Button,
   Box,
-  Drawer,
   Typography,
+  Avatar,
+  Divider,
 } from '@material-ui/core';
 
 import {
@@ -24,6 +25,7 @@ import {
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import { NavLink } from 'react-router-dom';
 import SubMenu from './SubMenu';
+import prashant from '../../assets/prashant.png';
 
 const useStyles = makeStyles((theme) => ({
   icons: {
@@ -78,8 +80,40 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100%',
   },
-  topBarLogo: {
-    margin: theme.spacing(2),
+  topBar: {
+    margin: theme.spacing(0.8),
+  },
+  '@global': {
+    '*::-webkit-scrollbar': {
+      width: '0.6em',
+      borderRadius: '20px',
+      'scrollbar-width': 'thin',
+      height: '4px',
+    },
+    '*::-webkit-scrollbar-track': {
+      boxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)',
+      webkitBoxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)',
+    },
+    '*::-webkit-scrollbar-thumb': {
+      backgroundColor: 'rgba(0,0,0, 0.5)',
+      outline: '1px solid slategrey',
+    },
+  },
+  profileTypoName: {
+    color: '#FFFFFF',
+    fontSize: '20px !important',
+    marginTop: theme.spacing(1.5),
+    fontWeight: '500',
+  },
+  profileTypoEmail: {
+    fontSize: '13px',
+    color: '#94A3B8',
+    marginTop: theme.spacing(0.8),
+    fontWeight: 500,
+  },
+  bottomLine: {
+    color: '#FFFFFF',
+    marginTop: theme.spacing(4),
   },
 }));
 
@@ -136,16 +170,17 @@ const SideNavList = ({ handleDrawerClose }) => {
     <>
       {/* //*------------->Logo---------------> */}
       <Box
-        className={classes.topBarLogo}
+        className={classes.topBar}
         display="flex"
         justifyContent="space-between"
         alignItems="center"
       >
-        <img
-          src="http://angular-material.fusetheme.com/assets/images/logo/logo.svg"
-          alt="logo"
-        />
-
+        <Box>
+          <Avatar
+            src="https://www.renaultgroup.com/wp-content/uploads/2021/03/nouveau_logo_renault_banner.jpg"
+            alt="logo"
+          />
+        </Box>
         <Box
           display="flex"
           alignItems="center"
@@ -160,7 +195,7 @@ const SideNavList = ({ handleDrawerClose }) => {
         <Box>
           {/* <img src={prashant} alt="logo" className={classes.profileImageLogo} /> */}
           <img
-            src="https://media.istockphoto.com/photos/closeup-portrait-of-his-he-nice-attractive-glad-cheerful-cheery-guy-picture-id1256127007?s=612x612"
+            src={prashant}
             alt="logo"
             // className={classes.profileImageLogo}
             className={classes.profileImage}
@@ -168,18 +203,18 @@ const SideNavList = ({ handleDrawerClose }) => {
         </Box>
       </Box>
       <Box display="flex" justifyContent="center" alignItems="center">
-        <Typography variant="h6">Prashantkhfddfdffddl</Typography>
+        <Typography className={classes.profileTypoName}>
+          Prashant Khanal
+        </Typography>
       </Box>
       <Box display="flex" justifyContent="center" alignItems="center">
-        <Typography variant="h6">Prashantkhanal</Typography>
+        <Typography className={classes.profileTypoEmail}>
+          prashantkhanal32@gmail.com
+        </Typography>
       </Box>
-      <Drawer color="white" />
       <Box>
-        <Button
-          // size="small"
-          onClick={() => handleDrawerClose()}
-          className={classes.navBtn}
-        >
+        <hr className={classes.bottomLine} />
+        <Button onClick={() => handleDrawerClose()} className={classes.navBtn}>
           <List>
             {data.map((item, i) => (
               <ListItem
